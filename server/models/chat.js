@@ -14,11 +14,11 @@ const chatSchema = new Schema({
         type:String,
         default : 'Waiting...'
     },
-    createdAt:{
-        type:Date,
-        default :Date.now 
+    localDate:{
+        type:String,
+      //  default : () => new Date(new Date().toLocaleString()) 
     },
-    updatedAt:{
+    utcDate:{
         type:Date,
         default :Date.now 
     }

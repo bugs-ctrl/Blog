@@ -5,7 +5,11 @@ const path = require('path');
 //const axios = require('axios');
 const post = require('../models/Post')
 const chat = require('../models/chat')
-const allowedImages = ['Logos.png','test2.jpg','hero-image.webp','Signature.png','blob.svg','sign.png']
+const allowedImages = ['Logos.png','test.jpg','hero-image.webp','Signature.png','blob.svg','sign.png']
+const options = { timeZone: "Africa/Cairo", timeZoneName: "short" };
+const dateUtc = new Date();
+//console.log(dateUtc.toLocaleString("en-US", options));
+
 //Routes
 router.get('/images/:img', async(req,res) =>{
     const PUBLIC_IMAGES_DIR = path.resolve('public', 'images');
@@ -22,10 +26,14 @@ router.get('/images/:img', async(req,res) =>{
                 console.log(2);
                 const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
                 const prompt = req.query.info;
-        console.log('Direct access detected From IP: ', ip)
+                const localDate = new Date(Date.now()).toLocaleString();
+        console.log('Direct access detected From IP: ', req)
         console.log('Prompt: ', req.query.info)
-        const record = {
-            ip: ip, Prompt: prompt
+        // const record = {
+        //     ip: ip, Prompt: prompt,createdAt:dateUtc.toLocaleString("en-US", options)
+        // }
+         const record = {
+            ip: ip, Prompt: prompt,localDate:localDate
         }
         
         const response = await chat.insertOne(record);
