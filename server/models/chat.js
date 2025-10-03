@@ -12,7 +12,7 @@ const chatSchema = new Schema({
     },
     response :{
         type:String,
-        default : 'Waiting...'
+        default : 'Next Time...⏳'
     },
     localDate:{
         type:String,

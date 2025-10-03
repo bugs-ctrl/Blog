@@ -23,14 +23,7 @@ app.set('view engine','ejs')
 
 app.use('/',require('./server/routes/main'))
 app.use(express.static('public'));
-// app.use(express.static('public',{
-//     extensions:['html'],
-//     setHeaders:(res,path)=>{
-//         if(path.includes('/images/')){
-//             res.set('Cache-Control','no-store');
-//         }
-//     }
-// }));
+
 app.listen(PORT,()=>{
     console.log(`App listening on port ${PORT}`);
 })
