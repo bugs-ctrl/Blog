@@ -5,7 +5,7 @@ const path = require('path');
 //const axios = require('axios');
 const post = require('../models/Post')
 const chat = require('../models/chat')
-const allowedImages = ['Logos.png','test.jpg','hero-image.webp','Signature.png','blob.svg','sign.png','grok.png']
+const allowedImages = ['Logos.png','test.jpg','hero-image.webp','Signature.png','blob.svg','sign.png','grokT.png']
 const options = { timeZone: "Africa/Cairo", timeZoneName: "short" };
 const dateUtc = new Date();
 //console.log(dateUtc.toLocaleString("en-US", options));
